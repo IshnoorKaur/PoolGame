@@ -232,7 +232,7 @@ phylib_table *phylib_copy_table(phylib_table *table)
     }
 
 
-    // Return address of copy_table
+    // Returns the address of copy_table
     return copy_table;
 }
 
