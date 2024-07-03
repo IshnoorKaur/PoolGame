@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Setup</title>
+<style>
+    * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Georgia, serif;
+}
+
+/* Body styles */
+body {
+    font-family: Georgia, serif;
+    background-color: #f4f4f4;
+}
+
+/* Container styles */
+.container {
+    max-width: 400px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Heading styles */
+h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* Form group styles */
+.form-group {
+    margin-bottom: 20px;
+}
+
+/* Label styles */
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+/* Input styles */
+input[type="text"] {
+    font-family: Georgia, serif;
+    width: 100%;
+    padding: 8px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+/* Submit button styles */
+input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            font-size: 18px;
+            background-color: #1ea425; 
+            color: #fff; 
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #115d25; 
+        }
+</style>
+</head>
+
+<body>
+
+    <div class="container">
+        <h1>Welcome to the Pool Game</h1>
+        <form id="gameForm" action="/start_game" method="post">
+            <label for="gameName">Game Name:</label>
+            <input type="text" id="gameName" name="gameName" required><br><br>
+            <label for="player1Name">Player 1 Name:</label>
+            <input type="text" id="player1Name" name="player1Name" required><br><br>
+            <label for="player2Name">Player 2 Name:</label>
+            <input type="text" id="player2Name" name="player2Name" required><br><br>
+            <input type="submit" value="Start Game">
+        </form>
+    </div>
+
+</body>
+
+</html>
