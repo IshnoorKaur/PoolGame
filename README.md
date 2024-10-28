@@ -30,7 +30,7 @@ Welcome to the Full Stack Pool Game! This project is a full-featured pool game d
 - Follow the on-screen prompts to play the game according to the rules.
   
 ## Game Rules
-- Players take turns to hit the cue ball and pocket their designated balls (dark or light colors).
-- The game continues until one player pockets all their balls and then legally pockets the 8 ball.
-- Pocketing the 8 ball prematurely results in an automatic win for the opponent.
-- Foul rules are enforced, and points are tracked accordingly.
+- Player Objectives: Each player aims to pocket all of their designated balls (solid or striped) before legally pocketing the 8 ball.
+- Turn-based Play: Players alternate turns unless a foul is committed.
+- Win Conditions: The game ends when a player pockets all their balls followed by the 8 ball; pocketing the 8 ball prematurely grants the opponent victory.
+- Foul Penalties: Specific fouls, such as scratching or failing to hit a designated ball, result in penalties and adjustments to score.
