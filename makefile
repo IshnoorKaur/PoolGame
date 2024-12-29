@@ -1,20 +1,25 @@
 CC = clang
-CFLAGS = -std=c99 -Wall -pedantic 
+CFLAGS = -std=c99 -Wall -pedantic
 
-all: myprog
+all: _phylib.so 
 
-clean:
-	rm -f *.o *.so myprog
-
-libphylib.so: phylib.o
-	$(CC) phylib.o -shared -o libphylib.so
+clean: 
+	rm -f *.o *.so *.svg phylib_wrap.c phylib.py _phylib.so
 
 phylib.o: phylib.c phylib.h
-	$(CC) $(CFLAGS) -c phylib.c -fPIC -o phylib.o
+	$(CC) $(CFLAGS) -fPIC -c phylib.c -o phylib.o
 
-A1test1.o: A1test1.c phylib.h
-	$(CC) $(CFLAGS) -c A1test1.c -o A1test1.o
+libphylib.so: phylib.o
+	$(CC)  -shared -o libphylib.so phylib.o -lm
 
-myprog: A1test1.o phylib.o libphylib.so 
-	$(CC) A1test1.o -L. -lphylib -lm -o myprog
+phylib_wrap.c: phylib.i phylib.h
+	swig -python phylib.i
+
+phylib.py: phylib.i phylib.h
+	swig -python phylib.i 
+
+phylib_wrap.o: phylib_wrap.c
+	$(CC) $(CFLAGS) -c phylib_wrap.c -I/usr/include/python3.11 -fPIC -o phylib_wrap.o
 	
+_phylib.so: phylib_wrap.o libphylib.so phylib.py
+	$(CC) $(CFLAGS) -shared phylib_wrap.o -L. -L/usr/lib/python3.11 -lpython3.11 -lphylib -o _phylib.so
