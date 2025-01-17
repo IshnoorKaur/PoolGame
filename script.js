@@ -10,7 +10,6 @@ $(document).ready(function () {
         isDrawing = false;
         let alertsShown = false;
 
-
         // Loop through each cue ball element and attach event listener
         $(this).on('mousedown', function (event) {
             isDrawing = true;
